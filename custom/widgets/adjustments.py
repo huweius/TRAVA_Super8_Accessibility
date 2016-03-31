@@ -15,14 +15,14 @@ class BinaryAdjustment(GridLayout):
         buttons = GridLayout(cols=2)
         buttons.padding = 10
 
-        plus_button = PicturedButton(icon_path('plus.png'))
-        plus_button.id = title + 'plus button'
-        plus_button.bind(on_press = positive_callback)
+        plus_button = PicturedButton(icon_path('plus.png'), positive_callback)
+        plus_button.id = title + ' plus button'
+        plus_button.bind(on_press=positive_callback)
         buttons.add_widget(plus_button)
 
-        minus_button = PicturedButton(icon_path('minus.png'))
-        minus_button.id = title + 'minus button'
-        minus_button.bind(on_press = negative_callback)
+        minus_button = PicturedButton(icon_path('minus.png'), negative_callback)
+        minus_button.id = title + ' minus button'
+        minus_button.bind(on_press=negative_callback)
         buttons.add_widget(minus_button)
 
         self.add_widget(buttons)
