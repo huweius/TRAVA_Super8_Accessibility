@@ -8,6 +8,8 @@ from kivy.uix.button import Button
 from kivy.uix.image import AsyncImage
 from callbacks.main_menu import *
 from custom.widgets.picture_button import *
+from custom.widgets.adjustments import BinaryAdjustment
+from __root__ import *
 
 class MainMenuLayout(GridLayout):
     def __init__(self):
@@ -36,9 +38,18 @@ class MainMenuLayout(GridLayout):
 
 
 
-class CameraControlMenuLayout(GridLayout):
+class LensControlMenuLayout(GridLayout):
     def __init__(self):
-        super(CameraControlMenuLayout, self).__init__(rows=4)
+        super(LensControlMenuLayout, self).__init__(rows=4)
+        self.add_widget(BinaryAdjustment('Zooming', default_callback, default_callback))
+        self.add_widget(BinaryAdjustment('Focusing', default_callback, default_callback))
+        self.add_widget(PicturedButton(icon_path('undo2.png')))
+        recording_buttons = GridLayout(cols=2)
+        recording_buttons.spacing = 10
+        recording_buttons.add_widget(Button(text='Start Recording', id='StartRecording'))
+        recording_buttons.add_widget(Button(text='End Recording', id='EndRecording'))
+        self.add_widget(recording_buttons)
+
 
 
 
@@ -49,12 +60,15 @@ class CameraControlMenuLayout(GridLayout):
 class MainLayout(GridLayout):
     def __init__(self, handedness='right'):
         super(MainLayout, self).__init__(cols=2)
+        self.menus = {'main':MainMenuLayout(), 'lens':LensControlMenuLayout()}
         if handedness == 'right':
             self.add_widget(AsyncImage(source='http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png'))
-            self.add_widget(MainMenuLayout())
+            self.add_widget(self.menus['main'])
+            self.menu_index = 2
         else:
-            self.add_widget(MainMenuLayout())
+            self.add_widget(self.menus['main'])
             self.add_widget(AsyncImage(source='http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png'))
+            self.menu_index = 1
 
 
 
