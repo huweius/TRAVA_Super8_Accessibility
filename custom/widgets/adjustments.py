@@ -3,8 +3,8 @@ from kivy.uix.button import ButtonBehavior
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from custom.widgets.picture_button import PicturedButton
-
 from __root__ import *
+
 
 class BinaryAdjustment(GridLayout):
     def __init__(self, title, positive_callback, negative_callback):
