@@ -50,8 +50,8 @@ class LensControlMenuLayout(GridLayout):
         self.padding = 10
         self.spacing = 10
 
-        self.add_widget(BinaryAdjustment('Zooming', default_callback, default_callback))
-        self.add_widget(BinaryAdjustment('Focusing', default_callback, default_callback))
+        self.add_widget(BinaryAdjustment('Zooming', default_callback, default_callback, 16, 18))
+        self.add_widget(BinaryAdjustment('Focusing', default_callback, default_callback, -1, -1))
         self.add_widget(PicturedButton(icon_path('undo2.png'), return_button_callback))
 
         self.add_widget(RecordingButtonsLayout())
@@ -64,9 +64,9 @@ class MotionControlMenuLayout(GridLayout):
         self.padding = 10
         self.spacing = 10
 
-        self.add_widget(BinaryAdjustment('Height', default_callback, default_callback))
-        self.add_widget(BinaryAdjustment('Panning', default_callback, default_callback))
-        self.add_widget(BinaryAdjustment('Tilting', default_callback, default_callback))
+        self.add_widget(BinaryAdjustment('Height', default_callback, default_callback, -1, -1))
+        self.add_widget(BinaryAdjustment('Panning', default_callback, default_callback, -1, -1))
+        self.add_widget(BinaryAdjustment('Tilting', default_callback, default_callback, -1, -1))
         self.add_widget(PicturedButton(icon_path('undo2.png'), return_button_callback))
 
         self.add_widget(RecordingButtonsLayout())

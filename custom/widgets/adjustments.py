@@ -8,7 +8,7 @@ from __root__ import *
 
 
 class BinaryAdjustment(GridLayout):
-    def __init__(self, title, positive_pin, negative_pin, **kwargs):
+    def __init__(self, title, positive_callback, negative_callback, positive_pin, negative_pin, **kwargs):
         super(BinaryAdjustment, self).__init__(rows=2, **kwargs)
         self.padding = 10
         self.add_widget(Label(text=title))
