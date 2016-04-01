@@ -1,8 +1,11 @@
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 
+from custom.callbacks.main_menu import default_callback
+
+
 class PicturedButton(ButtonBehavior, Image):
-    def __init__(self, source, on_release, on_press, **kwargs):
+    def __init__(self, source, on_release, on_press=default_callback, **kwargs):
         Image.__init__(self, source=source, **kwargs)
         ButtonBehavior.__init__(self)
         self.bind(on_press=on_press)
@@ -14,6 +17,6 @@ class PicturedButton(ButtonBehavior, Image):
 
     def on_release(self):
         ButtonBehavior.on_release(self)
-        print self.id + " is pressed. "
+        print self.id.__str__() + " is pressed. "
         self.opacity = 1
 

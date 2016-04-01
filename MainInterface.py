@@ -1,16 +1,12 @@
-import thread
 import RPi.GPIO as io
-
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
-from kivy.uix.camera import Camera
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.image import AsyncImage
-from callbacks.main_menu import *
-from custom.widgets.picture_button import *
-from custom.widgets.adjustments import BinaryAdjustment
+
 from __root__ import *
+from custom.widgets.adjustments import BinaryAdjustment
+from custom.widgets.picture_button import *
 
 
 class RecordingButtonsLayout(GridLayout):
@@ -76,7 +72,8 @@ class MainLayout(GridLayout):
     def __init__(self, handedness='right'):
         super(MainLayout, self).__init__(cols=2, background='white')
         # self.preview_screen = Camera()
-        self.preview_screen = AsyncImage(source='http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
+        self.preview_screen = AsyncImage(source=\
+            'http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
         self.menus = {'main': MainMenuLayout(), 'lens': LensControlMenuLayout(), 'motion': MotionControlMenuLayout()}
         if handedness == 'right':
             self.add_widget(self.preview_screen)
