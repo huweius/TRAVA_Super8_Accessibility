@@ -14,17 +14,17 @@ class Motor(object):
             io.setup(self.positive_pin, io.OUT)
             io.setup(self.negative_pin, io.OUT)
 
-    def clockwise(self):
+    def clockwise(self, button):
         if self.positive_pin != self.negative_pin:
             io.output(self.positive_pin, True)
             io.output(self.negative_pin, False)
 
-    def counter_clockwise(self):
+    def counter_clockwise(self, button):
         if self.positive_pin != self.negative_pin:
             io.output(self.positive_pin, False)
             io.output(self.negative_pin, True)
 
-    def stop(self):
+    def stop(self, button):
         if self.positive_pin != self.negative_pin:
             io.output(self.positive_pin, False)
             io.output(self.negative_pin, False)
