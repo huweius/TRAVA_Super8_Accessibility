@@ -4,6 +4,8 @@ from picamera import PiCamera
 import time
 import thread
 
+# TODO: Integrate Camera Preview to Kivy Screen Interface
+
 class PreviewScreen(Image):
     def __init__(self, **kwargs):
         super(Image, self).__init__(**kwargs)
