@@ -10,6 +10,7 @@ from custom.widgets.adjustments import BinaryAdjustment
 from custom.widgets.picture_button import *
 from custom.movements.indicator import *
 from custom.callbacks.main_menu import *
+from custom.methods.animations import Animator
 
 
 class RecordingButtonsLayout(GridLayout):
@@ -60,6 +61,8 @@ class LensControlMenuLayout(GridLayout):
 class MotionControlMenuLayout(GridLayout):
     def __init__(self):
         super(MotionControlMenuLayout, self).__init__(rows=5)
+
+        self.animator = Animator()
 
         self.padding = 10
         self.spacing = 10
