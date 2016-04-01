@@ -13,5 +13,6 @@ class PicturedButton(ButtonBehavior, Image):
 
     def on_release(self):
         ButtonBehavior.on_release(self)
+        print self.id + " is pressed. "
         self.opacity = 1
 
