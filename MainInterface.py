@@ -2,6 +2,7 @@ import RPi.GPIO as io
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.camera import Camera
 from kivy.uix.image import AsyncImage
 
 from __root__ import *
@@ -74,9 +75,9 @@ class MotionControlMenuLayout(GridLayout):
 class MainLayout(GridLayout):
     def __init__(self, handedness='right'):
         super(MainLayout, self).__init__(cols=2, background='white')
-        # self.preview_screen = Camera()
-        self.preview_screen = AsyncImage(source=\
-            'http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
+        self.preview_screen = Camera()
+        # self.preview_screen = AsyncImage(source=\
+        #     'http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
         self.menus = {'main': MainMenuLayout(), 'lens': LensControlMenuLayout(), 'motion': MotionControlMenuLayout()}
         if handedness == 'right':
             self.add_widget(self.preview_screen)
@@ -86,9 +87,6 @@ class MainLayout(GridLayout):
             self.add_widget(self.menus['main'])
             self.add_widget(self.preview_screen)
             self.menu_index = 1
-
-
-
 
 
 class ControlInterface(App):
