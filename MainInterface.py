@@ -1,4 +1,4 @@
-import RPi.GPIO as io
+import sys
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
@@ -11,6 +11,10 @@ from custom.widgets.picture_button import *
 from custom.movements.indicator import *
 from custom.callbacks.main_menu import *
 from custom.methods.animations import Animator
+
+if sys.platform != 'win32':
+    import RPi.GPIO as io
+
 
 
 class RecordingButtonsLayout(GridLayout):
