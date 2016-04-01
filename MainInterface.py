@@ -7,6 +7,7 @@ from kivy.uix.image import AsyncImage
 from __root__ import *
 from custom.widgets.adjustments import BinaryAdjustment
 from custom.widgets.picture_button import *
+from custom.callbacks.main_menu import *
 
 
 class RecordingButtonsLayout(GridLayout):
@@ -46,8 +47,8 @@ class LensControlMenuLayout(GridLayout):
         self.padding = 10
         self.spacing = 10
 
-        self.add_widget(BinaryAdjustment('Zooming', default_callback, default_callback, 16, 18))
-        self.add_widget(BinaryAdjustment('Focusing', default_callback, default_callback, -1, -1))
+        self.add_widget(BinaryAdjustment('Zooming', 16, 18))
+        self.add_widget(BinaryAdjustment('Focusing', -1, -1))
         self.add_widget(PicturedButton(icon_path('undo2.png'), return_button_callback))
 
         self.add_widget(RecordingButtonsLayout())
