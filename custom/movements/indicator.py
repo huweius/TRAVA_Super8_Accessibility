@@ -14,5 +14,5 @@ class Indicator(object):
     def set_on(self, button):
         io.output(self.pin, True)
 
-    def set_off(self):
+    def set_off(self, button):
         io.output(self.pin, False)

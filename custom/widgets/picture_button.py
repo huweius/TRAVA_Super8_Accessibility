@@ -12,12 +12,12 @@ class PicturedButton(ButtonBehavior, Image):
         self.custom_on_press = custom_on_press
 
     def on_press(self):
-        self.custom_on_press()
+        self.custom_on_press(self)
         ButtonBehavior.on_press(self)
         self.opacity = 0.5
 
     def on_release(self):
-        self.custom_on_release()
+        self.custom_on_release(self)
         ButtonBehavior.on_release(self)
         print self.id.__str__() + " is pressed. "
         self.opacity = 1

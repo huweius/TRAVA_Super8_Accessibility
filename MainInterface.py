@@ -7,6 +7,7 @@ from kivy.uix.image import AsyncImage
 from __root__ import *
 from custom.widgets.adjustments import BinaryAdjustment
 from custom.widgets.picture_button import *
+from custom.movements.indicator import *
 from custom.callbacks.main_menu import *
 
 
@@ -14,8 +15,9 @@ class RecordingButtonsLayout(GridLayout):
     def __init__(self):
         super(RecordingButtonsLayout, self).__init__(cols=2)
         self.spacing = 10
-        self.add_widget(PicturedButton(icon_path('video-camera.png'), default_callback, id='StartRecording'))
-        self.add_widget(PicturedButton(icon_path('stop2.png'), default_callback, id='EndRecording'))
+        self.indicator = Indicator('Record Button', 12)
+        self.add_widget(PicturedButton(icon_path('video-camera.png'), self.indicator.set_on, id='StartRecording'))
+        self.add_widget(PicturedButton(icon_path('stop2.png'), self.indicator.set_off, id='EndRecording'))
 
 
 class MainMenuLayout(GridLayout):
@@ -61,9 +63,9 @@ class MotionControlMenuLayout(GridLayout):
         self.padding = 10
         self.spacing = 10
 
-        self.add_widget(BinaryAdjustment('Height', default_callback, default_callback, -1, -1))
-        self.add_widget(BinaryAdjustment('Panning', default_callback, default_callback, -1, -1))
-        self.add_widget(BinaryAdjustment('Tilting', default_callback, default_callback, -1, -1))
+        self.add_widget(BinaryAdjustment('Height', -1, -1))
+        self.add_widget(BinaryAdjustment('Panning', -1, -1))
+        self.add_widget(BinaryAdjustment('Tilting', -1, -1))
         self.add_widget(PicturedButton(icon_path('undo2.png'), return_button_callback))
 
         self.add_widget(RecordingButtonsLayout())
