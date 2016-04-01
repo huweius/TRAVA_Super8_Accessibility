@@ -1,5 +1,5 @@
 import thread
-
+import RPi.GPIO as io
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -97,6 +97,10 @@ class ControlInterface(App):
         # self.build(super)
 
         return MainLayout(handedness='left')
+
+    def on_stop(self):
+        io.cleanup()
+
 
 if __name__ == '__main__':
     ControlInterface().run()
