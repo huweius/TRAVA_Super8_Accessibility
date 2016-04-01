@@ -24,6 +24,7 @@ def setting_callback(button):
     print 'Setting is pressed'
     # return True
 
+
 def return_button_callback(button):
     print 'Return button is pressed'
     main = button.parent.parent
