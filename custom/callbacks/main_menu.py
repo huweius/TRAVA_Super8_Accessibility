@@ -9,10 +9,11 @@ def default_callback(button):
 def camera_control_callback(button):
     main = button.parent.parent
 
-    button.parent.animator.fade_out(button.parent)
+    # button.parent.animator.fade_in(button.parent)
 
     main.remove_widget(main.menus['main'])
     main.add_widget(main.menus['lens'], main.menu_index)
+
     print 'Camera Control is pressed'
     # return True
 

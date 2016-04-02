@@ -30,6 +30,8 @@ class MainMenuLayout(GridLayout):
     def __init__(self):
         super(MainMenuLayout, self).__init__(rows=4)
 
+        # self.animator = Animator()
+
         self.padding = 10
         self.spacing = 10
 
@@ -66,7 +68,7 @@ class MotionControlMenuLayout(GridLayout):
     def __init__(self):
         super(MotionControlMenuLayout, self).__init__(rows=5)
 
-        self.animator = Animator()
+        # self.animator = Animator()
 
         self.padding = 10
         self.spacing = 10
