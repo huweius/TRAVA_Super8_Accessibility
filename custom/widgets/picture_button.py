@@ -10,6 +10,8 @@ class PicturedButton(ButtonBehavior, Image):
         ButtonBehavior.__init__(self)
         self.custom_on_release = custom_on_release
         self.custom_on_press = custom_on_press
+        self.width = 150
+        self.height = 150
 
     def on_press(self):
         self.custom_on_press(self)

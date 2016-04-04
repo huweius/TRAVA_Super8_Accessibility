@@ -84,9 +84,9 @@ class MotionControlMenuLayout(GridLayout):
 class MainLayout(GridLayout):
     def __init__(self, handedness='right'):
         super(MainLayout, self).__init__(cols=2, background='white')
-        self.preview_screen = Camera()
-        # self.preview_screen = AsyncImage(source=\
-        #     'http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
+        # self.preview_screen = Camera()
+        self.preview_screen = AsyncImage(source=\
+            'http://www.president.gov.ua/storage/j-image-storage/01/89/38/94033d27b2015f3db8d5afa29ab92bb3_1444821939_large.png')
         self.menus = {'main': MainMenuLayout(), 'lens': LensControlMenuLayout(), 'motion': MotionControlMenuLayout()}
         if handedness == 'right':
             self.add_widget(self.preview_screen)
@@ -106,7 +106,8 @@ class ControlInterface(App):
         return MainLayout(handedness='left')
 
     def on_stop(self):
-        io.cleanup()
+        if sys.platform != 'win32':
+            io.cleanup()
 
 
 if __name__ == '__main__':
