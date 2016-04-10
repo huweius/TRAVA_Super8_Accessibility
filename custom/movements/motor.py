@@ -20,12 +20,14 @@ class Motor(object):
     def clockwise(self, button):
         if sys.platform != 'win32':
             if self.positive_pin != self.negative_pin:
+                print 'Turning clockwise'
                 io.output(self.positive_pin, True)
                 io.output(self.negative_pin, False)
 
     def counter_clockwise(self, button):
         if sys.platform != 'win32':
             if self.positive_pin != self.negative_pin:
+                print 'Turning counterclockwise'
                 io.output(self.positive_pin, False)
                 io.output(self.negative_pin, True)
 
